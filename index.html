@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Neha Deshabhratar | Software Developer & Tester</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --primary-light: #34495e;
+            --accent-blue: #3498db;
+            --accent-green: #2ecc71;
+            --text-dark: #333333;
+            --text-light: #ecf0f1;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Utility classes */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 25px;
+        }
+
+        .section-heading {
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: var(--accent-blue);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: moveShape 10s infinite alternate;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: moveShape 8s infinite alternate-reverse;
+        }
+
+        @keyframes moveShape {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+
+        .hero-content {
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid var(--accent-blue);
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        .hero .cta-buttons a {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin: 0 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .cta-buttons a:hover {
+            background: var(--accent-green);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* About Section */
+        #about p {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+            background: var(--accent-blue);
+            color: var(--text-light);
+        }
+        .skill-item:hover .skill-icon {
+            color: var(--text-light);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .skill-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            color: inherit;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            background: var(--bg-white);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .project-card .tech-list {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        /* Experience and Education */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--accent-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 0;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item.left {
+            left: 0;
+            padding-right: 30px;
+            text-align: right;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            right: -10px;
+            background-color: var(--accent-blue);
+            border: 3px solid var(--text-light);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px var(--shadow-medium);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Strengths Section */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .strength-item {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .strength-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px var(--shadow-medium);
+        }
+
+        .strength-item i {
+            font-size: 1.8rem;
+            color: var(--accent-green);
+        }
+
+        .strength-item p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px var(--shadow-medium);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .contact-item p {
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .contact-item a {
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .hero .cta-buttons a {
+                margin: 5px;
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .section-heading {
+                font-size: 1.8rem;
+            }
+
+            .timeline::after {
+                left: 18px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+                text-align: left;
+            }
+
+            .timeline-item.right,
+            .timeline-item.left {
+                left: 0;
+            }
+
+            .timeline-item::after,
+            .timeline-item.right::after {
+                left: 10px;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .skill-item {
+                min-width: unset;
+                padding: 15px;
+            }
+            .skill-icon {
+                font-size: 2.5rem;
+            }
+            .skill-item h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <img src="image.JPG" alt="Neha Deshabhratar" loading="lazy" />
+            <h1>Neha Deshabhratar</h1>
+            <p><strong>Java Developer & Software Tester</strong> passionate about building scalable solutions and ensuring robust quality.</p>
+            <div class="cta-buttons">
+                <a href="#projects">View Projects <i class="fas fa-code"></i></a>
+                <a href="#contact">Get in Touch <i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="container">
+            <h2 class="section-heading">About Me</h2>
+            <div class="card">
+                <p>I am a **final-year Computer Science Engineering student** with a dual passion for **Java development** and **software quality assurance**. I leverage my expertise in **Spring Boot, Node.js, MySQL, and REST APIs** to develop robust and efficient applications. My experience includes crafting engaging platforms like a gamified C-learning system and contributing to a vital blood bank website. I am committed to delivering high-quality, reliable software solutions that drive digital innovation.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2 class="section-heading">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-java skill-icon"></i>
+                    <h3>Java</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-envira skill-icon"></i> <h3>Spring Boot</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-node-js skill-icon"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js-square skill-icon"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>HTML & CSS</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>SQL / MySQL</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-exchange-alt skill-icon"></i>
+                    <h3>RESTful APIs</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <h3>Git & GitHub</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-cube skill-icon"></i>
+                    <h3>OOP</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-vial skill-icon"></i>
+                    <h3>Black-box Testing</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-clipboard-check skill-icon"></i>
+                    <h3>STLC</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2 class="section-heading">Key Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>C-Learning Game</h3>
+                    <p>Designed and developed a **gamified platform** to teach C programming concepts. Features include interactive 3D animations, a dynamic 3-level scoring system (MCQ, pseudocode, coding challenges), and **REST APIs** for real-time progress tracking.</p>
+                    <div class="tech-list"><strong>Tech:</strong> Node.js, MySQL, HTML, JavaScript</div>
+                </div>
+                <div class="project-card">
+                    <h3>Blood Bank Management Website</h3>
+                    <p>Contributed to a comprehensive **blood bank management website**, developing **frontend pages using HTML/JavaScript** and building a **Spring Boot backend** for efficient data handling and user interaction.</p>
+                    <div class="tech-list"><strong>Tech:</strong> Spring Boot, HTML, JavaScript, MySQL</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="container">
+            <h2 class="section-heading">Experience & Education</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Software Testing Intern</h3>
+                        <h4>Tristha Technologies | Jan 2025 - March 2025</h4>
+                        <p>Applied **black-box testing methodologies** and followed **ISTQB principles** to identify and report software defects, ensuring product quality.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Java Development Intern</h3>
+                        <h4>Codesoft | Sept 2024 - Oct 2024</h4>
+                        <p>Engaged in diverse **Java development tasks**, significantly **improving OOP skills** and enhancing logical problem-solving abilities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Web Development Intern</h3>
+                        <h4>Softtronix Services, Nagpur | Jun 2024 - July 2024</h4>
+                        <p>Developed **frontend pages using HTML/JavaScript** and built a **Spring Boot backend** for a comprehensive blood bank management website.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>B.E. – Computer Science Engineering</h3>
+                        <h4>Sant Gadge Baba Amravati University | 2021 – 2025 (Pursuing)</h4>
+                        <p>Current Academic Standing: 7th Sem: 72.57% | Overall CGPA: 69.35%</p>
+                        <p>Pre-University: HSC: 80.83% (2021), SSC: 83.20% (2019)</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>NSS Volunteer</h3>
+                        <h4>Sant Gadge Baba Amravati University </h4>
+                        <p>Actively participated in **National Service Scheme (NSS)** activities, fostering teamwork, leadership, and community engagement skills. Contributed to various social awareness and welfare initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="strengths" class="container">
+            <h2 class="section-heading">My Strengths</h2>
+            <div class="strengths-grid">
+                <div class="strength-item">
+                    <i class="fas fa-users"></i>
+                    <p><strong>Teamwork & Collaboration:</strong> Proven ability to work effectively in teams, demonstrated through NSS volunteering and successful project coordination.</p>
+                </div>
+                <div class="strength-item">
+                    <i class="fas fa-clock"></i>
+                    <p><strong>Time Management:</strong> Adept at balancing rigorous academics, multiple internships, and competitive activities efficiently.</p>
+                </div>
+                <div class="strength-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <p><strong>Innovation & Problem-Solving:</strong> Consistently devise creative solutions to address real-world challenges, transforming ideas into functional applications.</p>
+                </div>
+                <div class="strength-item">
+                    <i class="fas fa-brain"></i>
+                    <p><strong>Adaptability & Learning Agility:</strong> Quick learner, rapidly acquiring proficiency in new technologies like Spring Boot and Node.js.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2 class="section-heading">Connect With Me</h2>
+            <div class="contact-info-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email</p>
+                    <a href="mailto:nehadeshabhratar07@gmail.com">nehadeshabhratar07@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>Phone</p>
+                    <p>+91-7620042193</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Location</p>
+                    <p>Karanja (Lad), Dist. Washim, Maharashtra</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <p>LinkedIn</p>
+                    <a href="https://www.linkedin.com/in/neha-deshabhratar-677276348" target="_blank" rel="noopener noreferrer">linkedin.com/in/neha-deshabhratar</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <p>GitHub</p>
+                    <a href="https://github.com/nehadeshabhratar" target="_blank" rel="noopener noreferrer">github.com/nehadeshabhratar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Neha Deshabhratar. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
